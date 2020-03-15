@@ -35,7 +35,7 @@ public class GUI
 	}
 	
 	/*
-	 * Returns thee current instance of the GUI (as an Inventory object).
+	 * Returns the current instance of the GUI (as an Inventory object).
 	 * 
 	 * @return      The current instance of the Inventory GUI object.
 	 */
