@@ -15,10 +15,12 @@ public class QuerySender
 	/*
 	 * Loads all preliminary database host information necessary to send queries and communicate with the DMBS.
 	 * 
-	 * @param   connection   The java.sql.Connection object as set by the user.
-	 * @param   host         Usually localhost, the hostname of the DBMS connection as set in user's config.yml.
-	 * @param   database     
-	 * 
+	 * @param  connection  The java.sql.Connection object as set by the user
+	 * @param  host        Usually localhost, the hostname of the DBMS connection as set in user's config.yml
+	 * @param  database    The name of the database to hook up to, as set in the user's config.yml
+	 * @param  username    Username to sign into the DBMS, as set in the user's config.yml
+	 * @param  password    Password to sign into the DBMS, as set in the user's config.yml
+	 * @param  port        The port used by the DMBS to connect to the DB
 	 */
 	public void enterHostData(Connection connection, String host, String database, String username, String password, int port)
 	{
@@ -44,18 +46,30 @@ public class QuerySender
 	}
 	
 	
-	
-	// If the player's uuid does not appear in the db, consider them to be new. This is their first login.
-	// If the player's uuid DOES appear in the db, then it's not their first login.
-	public boolean isInDb(String UUID, String table)
+	/* 
+	 * If the player's uuid does not appear in the db, consider them to be new. This is their first login.
+	 * If the player's uuid DOES appear in the db, then it's not their first login.
+	 * 
+	 * @param  UUID    uuid of the player to find in the database
+	 * @param  table   Name of the table to search
+	 * @param  column  Name of the column (in the specified table) to search
+	 * @return         True if the player appears in the column of the specified table, false otherwise.
+	 */
+	public boolean isInDb(String UUID, String table, String column)
 	{	
 		int numberOfLogins = 0;
 		
-		// Query: SELECT COUNT(UUID) AS uuidcount FROM player;
+		/* 
+		 * Query: 
+		 * 
+		 * SELECT COUNT(uuid) AS uuidcount 
+		 * FROM player 
+		 * WHERE uuid = <arg_uuid>;
+		 */
 		try
 		{
 			Statement stmt = connection.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT COUNT(UUID) AS uuidcount FROM " + table + " WHERE UUID = '" + UUID + "';");
+			ResultSet rs = stmt.executeQuery("SELECT COUNT(" + column + ") AS uuidcount FROM " + table + " WHERE " + column + " = '" + UUID + "';");
 			numberOfLogins = rs.getInt("uuidcount");
 		} catch (SQLException e)
 		{
