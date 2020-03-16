@@ -1,4 +1,4 @@
-package com.ben.lobbyapi;
+package com.ben.lobbyapi.components;
 
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;

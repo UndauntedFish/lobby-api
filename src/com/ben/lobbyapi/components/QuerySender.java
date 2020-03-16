@@ -1,4 +1,4 @@
-package com.ben.lobbyapi;
+package com.ben.lobbyapi.components;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
