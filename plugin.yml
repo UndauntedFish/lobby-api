@@ -1,0 +1,4 @@
+name: LobbyAPI
+version: 1.0
+main: com.ben.lobbyapi.LobbyAPI
+authors: [UndauntedPhish] 
