@@ -16,7 +16,7 @@ public class LobbyAPI extends JavaPlugin implements Listener
 	public void onEnable()
 	{
 		timer = new Timer();
-		dbs = new dbSetup();
+		dbSetup = new dbSetup();
 		gui = new GUI();
 	}
 }
