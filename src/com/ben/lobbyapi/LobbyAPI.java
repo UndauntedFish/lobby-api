@@ -10,7 +10,7 @@ import com.ben.lobbyapi.components.dbSetup;
 public class LobbyAPI extends JavaPlugin implements Listener
 {
 	public Timer timer;
-	public dbSetup dbs;
+	public dbSetup dbSetup;
 	public GUI gui;
 	
 	public void onEnable()
