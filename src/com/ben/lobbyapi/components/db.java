@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class dbSetup
+public class db
 {
 	private Connection connection;
 	private String host, database, username, password;
