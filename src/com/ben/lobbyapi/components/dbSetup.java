@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class QuerySender
+public class dbSetup
 {
 	private Connection connection;
 	private String host, database, username, password;
@@ -22,9 +22,8 @@ public class QuerySender
 	 * @param  password    Password to sign into the DBMS, as set in the user's config.yml
 	 * @param  port        The port used by the DMBS to connect to the DB
 	 */
-	public void enterHostData(Connection connection, String host, String database, String username, String password, int port)
+	public void enterHostData(String host, String database, String username, String password, int port)
 	{
-		this.connection = connection;
 		this.host = host;
 		this.database = database;
 		this.username = username;
@@ -82,5 +81,13 @@ public class QuerySender
 			return true;
 		}
 		return false;
+	}
+	
+	/*
+	 * Returns the connection created here to the user, so that they may send queries to the db
+	 */
+	public Connection getConnection()
+	{
+		return this.connection;
 	}
 }

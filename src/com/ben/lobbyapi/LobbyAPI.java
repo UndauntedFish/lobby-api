@@ -4,20 +4,19 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import com.ben.lobbyapi.components.GUI;
-import com.ben.lobbyapi.components.QuerySender;
 import com.ben.lobbyapi.components.Timer;
+import com.ben.lobbyapi.components.dbSetup;
 
 public class LobbyAPI extends JavaPlugin implements Listener
 {
 	public Timer timer;
-	public QuerySender querySender;
+	public dbSetup dbs;
 	public GUI gui;
 	
-	@Override
 	public void onEnable()
 	{
 		timer = new Timer();
-		querySender = new QuerySender();
+		dbs = new dbSetup();
 		gui = new GUI();
 	}
 }
